@@ -19,7 +19,7 @@ class EDA:
     def get_all_data(self):
         all_data = []
         for day_of_week in ["mon", "tue", "wed", "thu", "fri"]:
-            print(f'Day of week: {day_of_week}')
+            # print(f'Day of week: {day_of_week}')
             obj = Data(datapath=self.datapath, dayofweek=day_of_week)
             all_data.append(obj.read_file())
         return pd.concat(all_data)
@@ -33,9 +33,22 @@ class EDA:
         print_sth({"Null_values": all_data.isna().sum()})
         print_sth({"location": all_data["location"].unique()})
 
+    def plot_customers_by_section_and_weekday(self):
+        df = self.get_all_data()
+        # df[["location", "customer_no"]].plot()
+        # plt.show()
+        print(len(df["location"].unique()))
+        df["customer_no"].groupby(df["location"]).count().plot(kind = "bar")
+        plt.show()
+
+    def calculate_no_of_customers_in_each_section(self):
+        df = self.get_all_data()
+        return df["customer_no"].groupby(df["location"]).count()
+
+
 
 datapath = "data/"
 eda_obj = EDA(datapath=datapath)
-print(eda_obj.summarize_data())
+print_sth(eda_obj.plot_customers_by_section_and_weekday())
 # obj = EDA(data)
 # print(obj.summarize_data())
