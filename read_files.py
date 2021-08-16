@@ -20,16 +20,16 @@ class Data:
 
         all_files = self.get_all_files()
         days_of_week = [i.split("/")[1][0:3] for i in all_files]
+        print(days_of_week)
         for day in days_of_week:
             if day == self.dayofweek:
                 index = days_of_week.index(day)
                 return pd.read_csv(all_files[index], sep = ";")
-            return f"No day of week named {self.dayofweek}"
 
 
 ## This lines are meant to test the class if it does what it is meant to do!
 data_path = "data/"
-dayofweek = "mon"
+dayofweek = "fri"
 obj = Data(data_path, dayofweek)
 
 print(obj.read_file())
