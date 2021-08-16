@@ -23,7 +23,7 @@ class Data:
         for day in days_of_week:
             if day == self.dayofweek:
                 index = days_of_week.index(day)
-                return pd.read_csv(all_files[index], sep = ";")
+                return pd.read_csv(all_files[index], sep = ";", index_col=0, parse_dates=True)
 
 
 ## This lines are meant to test the class if it does what it is meant to do!
