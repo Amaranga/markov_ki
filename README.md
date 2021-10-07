@@ -3,6 +3,8 @@ This python program simulates and visualizes customer's behavior such as the amo
 
 The program starts by asking the user to enter the specific day of the week from Monday to Friday or 'all_days' (a simulation based on all days of the week) and then the number of customers. The Monte-Carlo simulation using Markov Chain will run based on the given data and the program visualizes the shopping pattern of the customers with the amount of money they spend at each aisle and finally the total income of the supermarket at the checkout section.
 
+<img src="visualization.gif">
+
 ## Usage
 - run the week08_MCMC_project.py in the terminal
 
